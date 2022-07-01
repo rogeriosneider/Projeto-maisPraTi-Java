@@ -11,12 +11,12 @@ public class Pessoa {
     private String nascimento;
     private LocalDateTime dataCadastro;
 
-    public Pessoa(Integer id, String name, String telefone, String nascimento, LocalDateTime dataCadastro) {
+    public Pessoa(String name, String telefone, String nascimento) {
         this.id = ContadorId.proximoId();
         this.name = name;
         this.telefone = telefone;
         this.nascimento = nascimento;
-        this.dataCadastro = dataCadastro;
+        this.dataCadastro = LocalDateTime.now();
     }
 
     public String getName() {
@@ -49,5 +49,9 @@ public class Pessoa {
 
     public void setDataCadastro(LocalDateTime dataCadastro) {
         this.dataCadastro = dataCadastro;
+    }
+
+    public Integer getId() {
+        return id;
     }
 }
