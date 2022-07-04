@@ -1,23 +1,39 @@
+import menu.Menu;
 import model.Pessoa;
 import repository.PessoaRepository;
+import service.PessoaService;
 import utils.FormataData;
 
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+        Menu.menu1();
         Scanner sc = new Scanner(System.in);
-        System.out.println("entre com o nome");
-        String nome = sc.nextLine();
-        System.out.println("Entre com telefone");
-        String telefone = sc.nextLine();
-        System.out.println("entre com o nascimento [dd/mm/aaa]");
-        String nascimento = sc.nextLine();
+        PessoaService pessoaService = new PessoaService(sc);
+        PessoaRepository pessoaRepository = new PessoaRepository();
+        boolean continua = true;
 
-        Pessoa pessoa = new Pessoa(nome, telefone, nascimento);
-        System.out.println("Cadastrado: " + pessoa.getId() + ", " + pessoa.getName() + ", " +
-                pessoa.getNascimento() + ", " + pessoa.getTelefone() + ", " +
-                FormataData.formata(pessoa.getDataCadastro()));
+        do {
+            Menu.menu2();
+            Integer opcao1 = sc.nextInt();
+            if(opcao1 == 1){
+                Menu.menu3();
+                int opcao2 = sc.nextInt();
+                if(opcao2 == 1){
+                    Pessoa pessoa = pessoaService.tratarOpcaoCadastro();
+                    pessoaRepository.salvar(pessoa);
+                    System.out.println("Cadastrado Id " + pessoa.getId() + ", nome " + pessoa.getName()
+                            + ", nascimento " + pessoa.getNascimento() + ", telefone " + pessoa.getTelefone()
+                            + ", cadastro em " + FormataData.formata(pessoa.getDataCadastro()));
+                }
+            } else if(opcao1 == 2) {
+                Pessoa pessoa = pessoaService.tratarOpcaoConsulta();
+                System.out.println("Cadastrado Id " + pessoa.getId() + ", nome " + pessoa.getName()
+                        + ", nascimento " + pessoa.getNascimento() + ", telefone " + pessoa.getTelefone()
+                        + ", cadastro em " + FormataData.formata(pessoa.getDataCadastro()));
+            }else if(opcao1 == 3){continua = false;}
+        } while(continua);
 
     }
 }
