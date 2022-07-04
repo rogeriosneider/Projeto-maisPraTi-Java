@@ -5,11 +5,12 @@ import utils.ContadorId;
 import java.time.LocalDateTime;
 
 public class Pessoa {
-    private Integer id;
+    private final Integer id;
     private String name;
     private String telefone;
     private String nascimento;
     private LocalDateTime dataCadastro;
+    private LocalDateTime dataAtualização;
 
     public Pessoa(String name, String telefone, String nascimento) {
         this.id = ContadorId.proximoId();
@@ -17,6 +18,7 @@ public class Pessoa {
         this.telefone = telefone;
         this.nascimento = nascimento;
         this.dataCadastro = LocalDateTime.now();
+        this.dataAtualização = getDataAtualização();
     }
 
     public String getName() {
@@ -49,6 +51,14 @@ public class Pessoa {
 
     public void setDataCadastro(LocalDateTime dataCadastro) {
         this.dataCadastro = dataCadastro;
+    }
+
+    public LocalDateTime getDataAtualização() {
+        return dataAtualização = LocalDateTime.now();
+    }
+
+    public void setDataAtualização(LocalDateTime dataAtualização) {
+        this.dataAtualização = dataAtualização;
     }
 
     public Integer getId() {

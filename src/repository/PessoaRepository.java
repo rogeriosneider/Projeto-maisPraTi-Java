@@ -9,20 +9,19 @@ import java.util.TreeMap;
 import java.util.stream.Collectors;
 
 public class PessoaRepository {
-    //private ArrayList<Pessoa> pessoasRepository = new ArrayList<>(30);
-    Map<Integer, Pessoa> pessoasRepository = new TreeMap<>();
+    Pessoa[] pessoasRepository = new Pessoa[30];
 
-
-    public void salvar(Pessoa pessoa){
-        this.pessoasRepository.put(pessoa.getId(), pessoa);
+    public void salvar(Integer id, Pessoa pessoa){
+        pessoasRepository[id] = pessoa;
     }
 
-    public List<Pessoa> listarPessoas() {
-        return pessoasRepository.values().stream().collect(Collectors.toList());
+
+    public Pessoa[] listarPessoas() {
+        return pessoasRepository;
     }
 
     public Pessoa buscarPorId(Integer id){
-        return pessoasRepository.get(id);
+        return pessoasRepository[id];
     }
 }
 

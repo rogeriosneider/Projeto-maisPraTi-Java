@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="65170e88-9f0e-4a7d-8322-b604598d7fd8" name="Changes" comment="criação do repository de pessoa e teste">
-      <change afterPath="$PROJECT_DIR$/src/menu/Menu.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/model/Aluno.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/service/PessoaService.java" afterDir="false" />
+    <list default="true" id="65170e88-9f0e-4a7d-8322-b604598d7fd8" name="Changes" comment="criação de cadastro e consulta, troca de formato de repository de ArrayList pra Map">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/Pessoa.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Pessoa.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/repository/PessoaRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/repository/PessoaRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/service/PessoaService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/PessoaService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/ContadorId.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/ContadorId.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,6 +22,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="repository-map" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -50,6 +55,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
+        <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
   </component>
@@ -76,7 +82,14 @@
       <option name="project" value="LOCAL" />
       <updated>1656705332683</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="criação de cadastro e consulta, troca de formato de repository de ArrayList pra Map">
+      <created>1656906497082</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1656906497082</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -93,7 +106,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="criação classe pessoa + contador de ID e formatador de data" />
     <MESSAGE value="criação do repository de pessoa e teste" />
-    <option name="LAST_COMMIT_MESSAGE" value="criação do repository de pessoa e teste" />
+    <MESSAGE value="criação de cadastro e consulta, troca de formato de repository de ArrayList pra Map" />
+    <option name="LAST_COMMIT_MESSAGE" value="criação de cadastro e consulta, troca de formato de repository de ArrayList pra Map" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
