@@ -18,9 +18,10 @@ public class PessoaService {
         this.pessoaRepository = new PessoaRepository();
     }
 
-    public Pessoa tratarOpcaoCadastro(){
-        Menu.menu3();
-        return this.cadastrarPessoa();
+    public Pessoa tratarOpcaoCadastro(String sc){
+        if(sc.equals("1")) return this.cadastrarPessoa();
+        if(sc.equals("2")) return this.cadastrarPessoa();
+        else return null;
     }
 
     public Pessoa tratarOpcaoConsulta() {
@@ -34,9 +35,13 @@ public class PessoaService {
         return pessoa;
     }
 
+    public Pessoa tratarOpcaoAtualiza(){
+        Menu.menu5();
+        return this.alteraDados();
+    }
+
 
     private Pessoa cadastrarPessoa(){
-        sc.nextLine();
         System.out.println("entre com o nome");
         String nome = sc.nextLine();
         System.out.println("Entre com telefone");
@@ -50,6 +55,7 @@ public class PessoaService {
     }
 
     private Pessoa alteraDados(){
+        sc.nextLine();
         Pessoa[] pessoas = pessoaRepository.listarPessoas();
         for(Pessoa elemento: pessoas){
             if(elemento != null)System.out.println("Id: " + elemento.getId() + ", Nome: " + elemento.getName());
@@ -58,6 +64,28 @@ public class PessoaService {
         Integer id = sc.nextInt();
         Pessoa pessoa = pessoaRepository.buscarPorId(id);
 
+        String nome = pessoa.getName();
+        String telefone = pessoa.getTelefone();
+        String nascimento = pessoa.getNascimento();
+
+        System.out.println("Deseja alterar o nome: " + nome + "? s/n");
+        String alteraNome = sc.nextLine();
+        if(alteraNome.equals("s")){
+            System.out.println("Entre com o nome");
+            pessoa.setName(sc.nextLine());
+        }
+
+        System.out.println("Deseja alterar o telefone: " + telefone + "? s/n");
+        String alteraFone = sc.nextLine();
+        if(alteraFone.equals("s")){
+            System.out.println("Entre com o telefone");
+            pessoa.setTelefone(sc.nextLine());
+        }
+
+        //procurar forma de salvar isso no repository - substituir colocando a pessoa nova no lugar da antiga
+        //criar uma função alterar() no repository, semelhante ao salvar() mas informando o id onde vai ser inserido
+        //a princípio é como ta abaixo, testar depois pra ver se funciona
+        pessoaRepository.salvar(id, pessoa);
         return pessoa;
     }
 }

@@ -18,13 +18,14 @@ public class Menu {
     public static void menu3(){
         System.out.println("Escolha uma opção:");
         System.out.println("1 - cadastrar nova pessoa;");
-        System.out.println("2 - cadastrar novo aluno.");
+        System.out.println("2 - cadastrar novo aluno;");
+        System.out.println("3 - para retornar.");
 
     }
 
     public static void menu4(){
         System.out.println("Escolha uma opção:");
-        System.out.println("1 - consultar lista de pessoas;");
+        System.out.println("1 - consultar lista completa;");
         System.out.println("2 - consultar lista de alunos.");
 
     }

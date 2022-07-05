@@ -14,7 +14,32 @@ public class Main {
         PessoaRepository pessoaRepository = new PessoaRepository();
         boolean continua = true;
 
-        Pessoa pessoa = pessoaService.tratarOpcaoCadastro();
+
+        do {
+            Menu.menu2();
+            String opcao = sc.nextLine();
+            if(opcao.equals("1")){
+                boolean continuar = true;
+                do{
+                    Menu.menu3();
+                    String opcao2 = sc.nextLine();
+                    if (opcao2.equals("1")||opcao2.equals("2")) pessoaService.tratarOpcaoCadastro(opcao2);
+                    else if(opcao2.equals("3")) continuar = false;
+                } while(continuar);
+            } else if(opcao.equals("2")){
+                Pessoa consulta = pessoaService.tratarOpcaoConsulta();
+                System.out.println("Id " + consulta.getId() + ", nome " + consulta.getName()
+                        + ", nascimento " + consulta.getNascimento() + ", telefone " + consulta.getTelefone()
+                        + ", cadastro em " + FormataData.formata(consulta.getDataCadastro())
+                        + ", atualizado em " + FormataData.formata(consulta.getDataAtualização()));
+            }
+        } while(continua);
+
+
+
+
+
+        /*Pessoa pessoa = pessoaService.tratarOpcaoCadastro();
         System.out.println("Cadastrado Id " + pessoa.getId() + ", nome " + pessoa.getName()
                 + ", nascimento " + pessoa.getNascimento() + ", telefone " + pessoa.getTelefone()
                 + ", cadastro em " + FormataData.formata(pessoa.getDataCadastro())
@@ -25,6 +50,12 @@ public class Main {
                 + ", nascimento " + consulta.getNascimento() + ", telefone " + consulta.getTelefone()
                 + ", cadastro em " + FormataData.formata(consulta.getDataCadastro())
                 + ", atualizado em " + FormataData.formata(consulta.getDataAtualização()));
+
+        Pessoa altera = pessoaService.tratarOpcaoAtualiza();
+        System.out.println("Id " + altera.getId() + ", nome " + altera.getName()
+                + ", nascimento " + altera.getNascimento() + ", telefone " + altera.getTelefone()
+                + ", cadastro em " + FormataData.formata(altera.getDataCadastro())
+                + ", atualizado em " + FormataData.formata(altera.getDataAtualização()));*/
 
         /*do {
             Menu.menu2();

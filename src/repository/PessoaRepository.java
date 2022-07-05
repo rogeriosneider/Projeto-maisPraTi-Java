@@ -15,7 +15,6 @@ public class PessoaRepository {
         pessoasRepository[id] = pessoa;
     }
 
-
     public Pessoa[] listarPessoas() {
         return pessoasRepository;
     }
