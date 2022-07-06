@@ -6,7 +6,6 @@ public class Menu {
         System.out.println("===================================");
         System.out.println("Bem vindo ao sistema de alunos");
         System.out.println("===================================");
-        System.out.println();
     }
 
     public static void menu2(){

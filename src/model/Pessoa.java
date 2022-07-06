@@ -1,6 +1,7 @@
 package model;
 
 import utils.ContadorId;
+import utils.FormataData;
 
 import java.time.LocalDateTime;
 
@@ -63,5 +64,13 @@ public class Pessoa {
 
     public Integer getId() {
         return id;
+    }
+
+    public String toString() {
+        return "Id " + this.getId() + ", nome " + this.getName()
+                + ", nascimento " + this.getNascimento() + ", telefone " + this.getTelefone()
+                + ", cadastro em " + FormataData.formata(this.getDataCadastro())
+                + ", atualizado em " + FormataData.formata(this.getDataAtualização())
+                + ";";
     }
 }

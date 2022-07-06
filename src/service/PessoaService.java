@@ -1,12 +1,10 @@
 package service;
 
 import menu.Menu;
+import model.Aluno;
 import model.Pessoa;
 import repository.PessoaRepository;
-import utils.FormataData;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 public class PessoaService {
@@ -18,10 +16,9 @@ public class PessoaService {
         this.pessoaRepository = new PessoaRepository();
     }
 
-    public Pessoa tratarOpcaoCadastro(String sc){
-        if(sc.equals("1")) return this.cadastrarPessoa();
-        if(sc.equals("2")) return this.cadastrarPessoa();
-        else return null;
+    public void tratarOpcaoCadastro(String sc){
+        if(sc.equals("1")) cadastrarPessoa();
+        if(sc.equals("2")) cadastrarAluno();
     }
 
     public Pessoa tratarOpcaoConsulta() {
@@ -33,13 +30,30 @@ public class PessoaService {
         Integer id = sc.nextInt();
         Pessoa pessoa = pessoaRepository.buscarPorId(id);
         return pessoa;
+        //pensando: fazer consulta void e, ao final, perguntar se quer atualizar dados daquele Id com if para s
+        //fazer chamar a atualiza, trocando ela pra private e enviando a pessoa consultada
     }
 
     public Pessoa tratarOpcaoAtualiza(){
-        Menu.menu5();
-        return this.alteraDados();
-    }
+        sc.nextLine();
+        Pessoa[] pessoas = pessoaRepository.listarPessoas();
+        for(Pessoa elemento: pessoas){
+            if(elemento != null)System.out.println("Id: " + elemento.getId() + ", Nome: " + elemento.getName());
+        }
+        System.out.println("entre com o id que deseja atualizar");
+        Integer id = sc.nextInt();
+        Pessoa pessoa = pessoaRepository.buscarPorId(id);
 
+        Menu.menu5();
+        return this.atualizaPessoa(pessoa);
+
+
+        /*
+        OBS: fazer um método igual ao tratarOpcaoCadastro pra separar se é aluno ou pessoa;
+        começar o método ja exibindo a lista e escolhendo a pessoa/aluno pra ver, e disso seguir
+        tentar usar ig(get.nota() != null) pra separar entre se vai pro atualizaPessoa ou atualizaAluno;
+        */
+    }
 
     private Pessoa cadastrarPessoa(){
         System.out.println("entre com o nome");
@@ -54,16 +68,23 @@ public class PessoaService {
         return pessoa;
     }
 
-    private Pessoa alteraDados(){
-        sc.nextLine();
-        Pessoa[] pessoas = pessoaRepository.listarPessoas();
-        for(Pessoa elemento: pessoas){
-            if(elemento != null)System.out.println("Id: " + elemento.getId() + ", Nome: " + elemento.getName());
-        }
-        System.out.println("entre com o id que deseja atualizar");
-        Integer id = sc.nextInt();
-        Pessoa pessoa = pessoaRepository.buscarPorId(id);
+    private Aluno cadastrarAluno(){
+        System.out.println("entre com o nome");
+        String nome = sc.nextLine();
+        System.out.println("Entre com telefone");
+        String telefone = sc.nextLine();
+        System.out.println("entre com o nascimento [dd/mm/aaa]");
+        String nascimento = sc.nextLine();
+        System.out.println("entre com a nota final");
+        double nota = sc.nextDouble();
 
+        Aluno aluno = new Aluno(nome, telefone, nascimento, nota);
+        pessoaRepository.salvar(aluno.getId(), aluno);
+        return aluno;
+    }
+
+    private Pessoa atualizaPessoa(Pessoa pessoa){
+        Integer id = pessoa.getId();
         String nome = pessoa.getName();
         String telefone = pessoa.getTelefone();
         String nascimento = pessoa.getNascimento();
@@ -82,9 +103,6 @@ public class PessoaService {
             pessoa.setTelefone(sc.nextLine());
         }
 
-        //procurar forma de salvar isso no repository - substituir colocando a pessoa nova no lugar da antiga
-        //criar uma função alterar() no repository, semelhante ao salvar() mas informando o id onde vai ser inserido
-        //a princípio é como ta abaixo, testar depois pra ver se funciona
         pessoaRepository.salvar(id, pessoa);
         return pessoa;
     }
