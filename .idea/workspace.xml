@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="65170e88-9f0e-4a7d-8322-b604598d7fd8" name="Changes" comment="implementado cadastro, consulta e atualização de dados de pessoa; início da implementação do menu de navegação">
+    <list default="true" id="65170e88-9f0e-4a7d-8322-b604598d7fd8" name="Changes" comment="implementação de cadastro de aluno, criação de método toString para aluno e pessoa, modificações no método para consulta">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/menu/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/menu/Menu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/Aluno.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Aluno.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/Pessoa.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Pessoa.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/repository/PessoaRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/repository/PessoaRepository.java" afterDir="false" />
@@ -104,7 +103,14 @@
       <option name="project" value="LOCAL" />
       <updated>1657055593335</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="implementação de cadastro de aluno, criação de método toString para aluno e pessoa, modificações no método para consulta">
+      <created>1657141657375</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1657141657375</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -124,7 +130,8 @@
     <MESSAGE value="criação de cadastro e consulta, troca de formato de repository de ArrayList pra Map" />
     <MESSAGE value="criação de branch para salvar projeto com repository Map; troca de sistema de repository para array conforme observações do projeto; teste de cadastro e consulta de pessoa" />
     <MESSAGE value="implementado cadastro, consulta e atualização de dados de pessoa; início da implementação do menu de navegação" />
-    <option name="LAST_COMMIT_MESSAGE" value="implementado cadastro, consulta e atualização de dados de pessoa; início da implementação do menu de navegação" />
+    <MESSAGE value="implementação de cadastro de aluno, criação de método toString para aluno e pessoa, modificações no método para consulta" />
+    <option name="LAST_COMMIT_MESSAGE" value="implementação de cadastro de aluno, criação de método toString para aluno e pessoa, modificações no método para consulta" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

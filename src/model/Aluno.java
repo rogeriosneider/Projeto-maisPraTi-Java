@@ -17,7 +17,7 @@ public class Aluno extends Pessoa{
         this.dataCadastro = LocalDateTime.now();
     }
 
-    public double getNotaFinal() {
+    public Double getNotaFinal() {
         return notaFinal;
     }
 

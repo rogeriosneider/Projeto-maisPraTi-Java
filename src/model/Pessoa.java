@@ -12,6 +12,7 @@ public class Pessoa {
     private String nascimento;
     private LocalDateTime dataCadastro;
     private LocalDateTime dataAtualização;
+    private Double notaFinal = null;
 
     public Pessoa(String name, String telefone, String nascimento) {
         this.id = ContadorId.proximoId();
@@ -20,6 +21,10 @@ public class Pessoa {
         this.nascimento = nascimento;
         this.dataCadastro = LocalDateTime.now();
         this.dataAtualização = getDataAtualização();
+    }
+
+    public Double getNotaFinal() {
+        return notaFinal;
     }
 
     public String getName() {

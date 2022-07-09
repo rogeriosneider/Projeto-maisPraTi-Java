@@ -31,6 +31,13 @@ public class Main {
                 //criar opção de consultar lista, e dentro disso criar do while mostrando lista e atualizando cadastro
                 Pessoa consulta = pessoaService.tratarOpcaoConsulta();
                 System.out.println(consulta);
+                System.out.println();
+                sc.nextLine();
+                System.out.println("deseja atualizar dados? s para sim");
+                String opcao3 = sc.nextLine();
+                if(opcao3.equals("s")){
+                    pessoaService.tratarOpcaoAtualiza(consulta);
+                }
             } else if(opcao.equals("3")) continua=false;
         } while(continua);
 
