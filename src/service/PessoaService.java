@@ -1,6 +1,5 @@
 package service;
 
-import menu.Menu;
 import model.Aluno;
 import model.Pessoa;
 import repository.PessoaRepository;
@@ -18,7 +17,9 @@ public class PessoaService {
 
     public void tratarOpcaoCadastro(String sc){
         if(sc.equals("1")) cadastrarPessoa();
-        if(sc.equals("2")) cadastrarAluno();
+        else if(sc.equals("2")) {
+            cadastrarAluno();
+        }
     }
 
     public Pessoa tratarOpcaoConsulta() {
@@ -28,11 +29,7 @@ public class PessoaService {
         }
         System.out.println("entre com o id que deseja consultar");
         Integer id = sc.nextInt();
-        Pessoa pessoa = pessoaRepository.buscarPorId(id);
-        System.out.println(pessoa.getClass());
-        return pessoa;
-        //pensando: fazer consulta void e, ao final, perguntar se quer atualizar dados daquele Id com if para s
-        //fazer chamar a atualiza, trocando ela pra private e enviando a pessoa consultada
+        return pessoaRepository.buscarPorId(id);
     }
 
     public void tratarOpcaoAtualiza(Pessoa consulta){
@@ -42,17 +39,10 @@ public class PessoaService {
         } else {
             atualizaPessoa(consulta);
         }
-
-
-
-        /*
-        OBS: fazer um método igual ao tratarOpcaoCadastro pra separar se é aluno ou pessoa;
-        começar o método ja exibindo a lista e escolhendo a pessoa/aluno pra ver, e disso seguir
-        tentar usar ig(get.nota() != null) pra separar entre se vai pro atualizaPessoa ou atualizaAluno;
-        */
     }
 
-    private Pessoa cadastrarPessoa(){
+    private void cadastrarPessoa(){
+        System.out.println();
         System.out.println("entre com o nome");
         String nome = sc.nextLine();
         System.out.println("Entre com telefone");
@@ -62,10 +52,10 @@ public class PessoaService {
 
         Pessoa pessoa = new Pessoa(nome, telefone, nascimento);
         pessoaRepository.salvar(pessoa.getId(), pessoa);
-        return pessoa;
     }
 
-    private Aluno cadastrarAluno(){
+    private void cadastrarAluno(){
+        System.out.println();
         System.out.println("entre com o nome");
         String nome = sc.nextLine();
         System.out.println("Entre com telefone");
@@ -77,14 +67,13 @@ public class PessoaService {
 
         Aluno aluno = new Aluno(nome, telefone, nascimento, nota);
         pessoaRepository.salvar(aluno.getId(), aluno);
-        return aluno;
     }
 
-    private Pessoa atualizaPessoa(Pessoa pessoa){
+    private void atualizaPessoa(Pessoa pessoa){
         Integer id = pessoa.getId();
         String nome = pessoa.getName();
         String telefone = pessoa.getTelefone();
-        //String nascimento = pessoa.getNascimento();
+        pessoa.setDataAtualização();
 
         System.out.println("Deseja alterar o nome: " + nome + "? s/n");
         String alteraNome = sc.nextLine();
@@ -101,15 +90,14 @@ public class PessoaService {
         }
 
         pessoaRepository.salvar(id, pessoa);
-        return pessoa;
     }
 
-    private Pessoa atualizaAluno(Aluno aluno){
+    private void atualizaAluno(Aluno aluno){
         Integer id = aluno.getId();
         String nome = aluno.getName();
         String telefone = aluno.getTelefone();
-        //String nascimento = aluno.getNascimento();
         Double nota = aluno.getNotaFinal();
+        aluno.setDataAtualização();
 
         System.out.println("Deseja alterar o nome: " + nome + "? s/n");
         String alteraNome = sc.nextLine();
@@ -133,6 +121,5 @@ public class PessoaService {
         }
 
         pessoaRepository.salvar(id, aluno);
-        return aluno;
     }
 }

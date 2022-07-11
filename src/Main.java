@@ -2,7 +2,6 @@ import menu.Menu;
 import model.Pessoa;
 import repository.PessoaRepository;
 import service.PessoaService;
-import utils.FormataData;
 
 import java.util.Scanner;
 
@@ -22,24 +21,26 @@ public class Main {
             if(opcao.equals("1")){
                 boolean continuar = true;
                 do{
+                    System.out.println();
                     Menu.menu3();
                     String opcao2 = sc.nextLine();
                     if (opcao2.equals("1")||opcao2.equals("2")) pessoaService.tratarOpcaoCadastro(opcao2);
                     else if(opcao2.equals("3")) continuar = false;
                 } while(continuar);
             } else if(opcao.equals("2")){
-                //criar opção de consultar lista, e dentro disso criar do while mostrando lista e atualizando cadastro
-                Pessoa consulta = pessoaService.tratarOpcaoConsulta();
-                System.out.println(consulta);
-                System.out.println();
-                sc.nextLine();
-                System.out.println("deseja atualizar dados? s para sim");
-                String opcao3 = sc.nextLine();
-                if(opcao3.equals("s")){
-                    pessoaService.tratarOpcaoAtualiza(consulta);
-                }
+                boolean consultar = true;
+                do{
+                    Pessoa consulta = pessoaService.tratarOpcaoConsulta();
+                    System.out.println(consulta);
+                    System.out.println();
+                    sc.nextLine();
+                    Menu.menu5();
+                    String opcao3 = sc.nextLine();
+                    if(opcao3.equals("s")){
+                        pessoaService.tratarOpcaoAtualiza(consulta);
+                    } else if (opcao3.equals("n")) consultar = false;
+                } while(consultar);
             } else if(opcao.equals("3")) continua=false;
         } while(continua);
-
     }
 }

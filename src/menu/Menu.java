@@ -30,7 +30,7 @@ public class Menu {
     }
 
     public static void menu5(){
-        System.out.println("Deseja alterar dados?");
+        System.out.println("Deseja atualizar dados?");
         System.out.println("s para sim; n para retornar.");
     }
 }

@@ -6,7 +6,7 @@ import utils.FormataData;
 import java.time.LocalDateTime;
 
 public class Pessoa {
-    private final Integer id;
+    protected final Integer id;
     private String name;
     private String telefone;
     private String nascimento;
@@ -63,7 +63,7 @@ public class Pessoa {
         return dataAtualização = LocalDateTime.now();
     }
 
-    public void setDataAtualização(LocalDateTime dataAtualização) {
+    public void setDataAtualização() {
         this.dataAtualização = dataAtualização;
     }
 
