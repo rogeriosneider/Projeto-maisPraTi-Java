@@ -1,6 +1,5 @@
 import menu.Menu;
 import model.Pessoa;
-import repository.PessoaRepository;
 import service.PessoaService;
 
 import java.util.Scanner;
@@ -10,7 +9,6 @@ public class Main {
         Menu.menu1();
         Scanner sc = new Scanner(System.in);
         PessoaService pessoaService = new PessoaService(sc);
-        PessoaRepository pessoaRepository = new PessoaRepository();
         boolean continua = true;
 
 
@@ -30,16 +28,29 @@ public class Main {
             } else if(opcao.equals("2")){
                 boolean consultar = true;
                 do{
-                    Pessoa consulta = pessoaService.tratarOpcaoConsulta();
-                    System.out.println(consulta);
                     System.out.println();
-                    sc.nextLine();
-                    Menu.menu5();
+                    Menu.menu4();
                     String opcao3 = sc.nextLine();
-                    if(opcao3.equals("s")){
-                        pessoaService.tratarOpcaoAtualiza(consulta);
-                    } else if (opcao3.equals("n")) consultar = false;
-                } while(consultar);
+                    if(opcao3.equals("1")) {
+                        Pessoa consulta = pessoaService.consultaListaCompleta();
+                        System.out.println(consulta);
+                        System.out.println();
+                        Menu.menu5();
+                        String opcao4 = sc.nextLine();
+                        if (opcao4.equals("s")) {
+                            pessoaService.tratarOpcaoAtualiza(consulta);
+                        };
+                    } if(opcao3.equals("2")) {
+                        Pessoa consulta = pessoaService.consultaListaAlunos();
+                        System.out.println(consulta);
+                        System.out.println();
+                        Menu.menu5();
+                        String opcao4 = sc.nextLine();
+                        if (opcao4.equals("s")) {
+                            pessoaService.tratarOpcaoAtualiza(consulta);
+                        };
+                    } else if(opcao3.equals("3")) consultar = false;
+            } while(consultar);
             } else if(opcao.equals("3")) continua=false;
         } while(continua);
     }

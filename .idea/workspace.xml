@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="65170e88-9f0e-4a7d-8322-b604598d7fd8" name="Changes" comment="implementação de métodos para atualização de dados de objeto do tipo pessoa e do tipo aluno">
+    <list default="true" id="65170e88-9f0e-4a7d-8322-b604598d7fd8" name="Changes" comment="reorganização do main para formato mais próximo ao definitivo; aprimoramento da classe aluno; limpeza de código">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/menu/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/menu/Menu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/Aluno.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Aluno.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/Pessoa.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Pessoa.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/service/PessoaService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/PessoaService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -117,7 +115,14 @@
       <option name="project" value="LOCAL" />
       <updated>1657396803203</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="reorganização do main para formato mais próximo ao definitivo; aprimoramento da classe aluno; limpeza de código">
+      <created>1657574738615</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1657574738615</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -139,7 +144,8 @@
     <MESSAGE value="implementado cadastro, consulta e atualização de dados de pessoa; início da implementação do menu de navegação" />
     <MESSAGE value="implementação de cadastro de aluno, criação de método toString para aluno e pessoa, modificações no método para consulta" />
     <MESSAGE value="implementação de métodos para atualização de dados de objeto do tipo pessoa e do tipo aluno" />
-    <option name="LAST_COMMIT_MESSAGE" value="implementação de métodos para atualização de dados de objeto do tipo pessoa e do tipo aluno" />
+    <MESSAGE value="reorganização do main para formato mais próximo ao definitivo; aprimoramento da classe aluno; limpeza de código" />
+    <option name="LAST_COMMIT_MESSAGE" value="reorganização do main para formato mais próximo ao definitivo; aprimoramento da classe aluno; limpeza de código" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

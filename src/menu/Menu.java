@@ -26,11 +26,11 @@ public class Menu {
         System.out.println("Escolha uma opção:");
         System.out.println("1 - consultar lista completa;");
         System.out.println("2 - consultar lista de alunos.");
-
+        System.out.println("3 - para retornar.");
     }
 
     public static void menu5(){
-        System.out.println("Deseja atualizar dados?");
-        System.out.println("s para sim; n para retornar.");
+        System.out.println("Se deseja atualizar dados, entre com s;");
+        System.out.println("Se não, entre com qualquer tecla.");
     }
 }

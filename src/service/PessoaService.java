@@ -22,18 +22,62 @@ public class PessoaService {
         }
     }
 
-    public Pessoa tratarOpcaoConsulta() {
+    public Pessoa consultaListaCompleta() {
+        System.out.println();
         Pessoa[] pessoas = pessoaRepository.listarPessoas();
         for(Pessoa elemento: pessoas){
             if(elemento != null)System.out.println("Id: " + elemento.getId() + ", Nome: " + elemento.getName());
         }
-        System.out.println("entre com o id que deseja consultar");
-        Integer id = sc.nextInt();
+
+        boolean continuarLeitura = true;
+        Integer id = null;
+        while(continuarLeitura) {
+            System.out.println("Entre com o id que deseja consultar");
+            try {
+                id = Integer.parseInt(sc.nextLine());
+                if (pessoaRepository.buscarPorId(id) == null){
+                    System.out.println("Id inválido.");
+                    continue;
+                }
+                continuarLeitura = false;
+            } catch (NumberFormatException e){
+                System.out.println("Entrada inválida");
+            }
+        }
+        return pessoaRepository.buscarPorId(id);
+    }
+
+    public Pessoa consultaListaAlunos() {
+        System.out.println();
+        Pessoa[] pessoas = pessoaRepository.listarPessoas();
+        for(Pessoa elemento: pessoas){
+            if(elemento != null){
+                if(elemento.getNotaFinal() != null)
+                    System.out.println("Id: " + elemento.getId() + ", Nome: " + elemento.getName() +
+                            ", Nota Final: " + elemento.getNotaFinal());
+            }
+        }
+
+        boolean continuarLeitura = true;
+        Integer id = null;
+        while(continuarLeitura) {
+            System.out.println("Entre com o id que deseja consultar");
+            try {
+                id = Integer.parseInt(sc.nextLine());
+                if (pessoaRepository.buscarPorId(id) == null){
+                    System.out.println("Id inválido.");
+                    continue;
+                }
+                continuarLeitura = false;
+            } catch (NumberFormatException e){
+                System.out.println("Entrada inválida");
+            }
+        }
         return pessoaRepository.buscarPorId(id);
     }
 
     public void tratarOpcaoAtualiza(Pessoa consulta){
-        sc.nextLine();
+        //sc.nextLine();
         if(consulta.getNotaFinal() != null){
             atualizaAluno((Aluno) consulta);
         } else {
@@ -43,11 +87,11 @@ public class PessoaService {
 
     private void cadastrarPessoa(){
         System.out.println();
-        System.out.println("entre com o nome");
+        System.out.println("Entre com o nome");
         String nome = sc.nextLine();
         System.out.println("Entre com telefone");
         String telefone = sc.nextLine();
-        System.out.println("entre com o nascimento [dd/mm/aaa]");
+        System.out.println("Entre com o nascimento [dd/mm/aaa]");
         String nascimento = sc.nextLine();
 
         Pessoa pessoa = new Pessoa(nome, telefone, nascimento);
@@ -55,15 +99,24 @@ public class PessoaService {
     }
 
     private void cadastrarAluno(){
+        boolean entraNota = true;
+        double nota = 0;
         System.out.println();
-        System.out.println("entre com o nome");
+        System.out.println("Entre com o nome");
         String nome = sc.nextLine();
         System.out.println("Entre com telefone");
         String telefone = sc.nextLine();
-        System.out.println("entre com o nascimento [dd/mm/aaa]");
+        System.out.println("Entre com o nascimento [dd/mm/aaa]");
         String nascimento = sc.nextLine();
-        System.out.println("entre com a nota final");
-        double nota = sc.nextDouble();
+        while(entraNota) {
+            System.out.println("Entre com a nota final");
+            try {
+                nota = Double.parseDouble(sc.nextLine());
+                entraNota = false;
+            } catch (NumberFormatException e){
+                System.out.println("Formato de nota inválido;");
+            }
+        }
 
         Aluno aluno = new Aluno(nome, telefone, nascimento, nota);
         pessoaRepository.salvar(aluno.getId(), aluno);
@@ -116,10 +169,18 @@ public class PessoaService {
         System.out.println("Deseja alterar a nota final: " + nota + "? s/n");
         String alteraNota = sc.nextLine();
         if(alteraNota.equals("s")){
-            System.out.println("Entre com a nota");
-            aluno.setNotaFinal(sc.nextDouble());
+            boolean entraNota = true;
+            while(entraNota) {
+                System.out.println("Entre com a nota");
+                try{
+                    nota = Double.parseDouble(sc.nextLine());
+                    entraNota = false;
+                }catch (NumberFormatException e){
+                    System.out.println("Valor inválido;");
+                }
+            }
+            aluno.setNotaFinal(nota);
         }
-
         pessoaRepository.salvar(id, aluno);
     }
 }
