@@ -11,7 +11,7 @@ public class Pessoa {
     private String telefone;
     private String nascimento;
     private LocalDateTime dataCadastro;
-    private LocalDateTime dataAtualização;
+    private LocalDateTime dataAtualizacao;
     private Double notaFinal = null;
 
     public Pessoa(String name, String telefone, String nascimento) {
@@ -20,7 +20,7 @@ public class Pessoa {
         this.telefone = telefone;
         this.nascimento = nascimento;
         this.dataCadastro = LocalDateTime.now();
-        this.dataAtualização = getDataAtualização();
+        this.dataAtualizacao = getDataAtualizacao();
     }
 
     public Double getNotaFinal() {
@@ -59,12 +59,12 @@ public class Pessoa {
         this.dataCadastro = dataCadastro;
     }
 
-    public LocalDateTime getDataAtualização() {
-        return dataAtualização = LocalDateTime.now();
+    public LocalDateTime getDataAtualizacao() {
+        return dataAtualizacao = LocalDateTime.now();
     }
 
-    public void setDataAtualização() {
-        this.dataAtualização = dataAtualização;
+    public void setDataAtualizacao() {
+        this.dataAtualizacao = dataAtualizacao;
     }
 
     public Integer getId() {
@@ -75,7 +75,7 @@ public class Pessoa {
         return "Id " + this.getId() + ", nome " + this.getName()
                 + ", nascimento " + this.getNascimento() + ", telefone " + this.getTelefone()
                 + ", cadastro em " + FormataData.formata(this.getDataCadastro())
-                + ", atualizado em " + FormataData.formata(this.getDataAtualização())
+                + ", atualizado em " + FormataData.formata(this.getDataAtualizacao())
                 + ";";
     }
 }

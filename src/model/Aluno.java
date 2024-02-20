@@ -25,6 +25,6 @@ public class Aluno extends Pessoa{
                 + ", nascimento " + this.getNascimento() + ", telefone " + this.getTelefone()
                 + ", nota final: " + getNotaFinal()
                 + ", cadastro em " + FormataData.formata(this.getDataCadastro())
-                + ", atualizado em " + FormataData.formata(this.getDataAtualização()) + ";";
+                + ", atualizado em " + FormataData.formata(this.getDataAtualizacao()) + ";";
     }
 }

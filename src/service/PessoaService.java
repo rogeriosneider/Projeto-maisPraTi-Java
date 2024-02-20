@@ -126,7 +126,7 @@ public class PessoaService {
         Integer id = pessoa.getId();
         String nome = pessoa.getName();
         String telefone = pessoa.getTelefone();
-        pessoa.setDataAtualização();
+        pessoa.setDataAtualizacao();
 
         System.out.println("Deseja alterar o nome: " + nome + "? s/n");
         String alteraNome = sc.nextLine();
@@ -150,7 +150,7 @@ public class PessoaService {
         String nome = aluno.getName();
         String telefone = aluno.getTelefone();
         Double nota = aluno.getNotaFinal();
-        aluno.setDataAtualização();
+        aluno.setDataAtualizacao();
 
         System.out.println("Deseja alterar o nome: " + nome + "? s/n");
         String alteraNome = sc.nextLine();
